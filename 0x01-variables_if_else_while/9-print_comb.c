@@ -1,7 +1,5 @@
-#include <stdio.h>
-
 /**
- * main - Printing the natural numbers from 0 - 9 with , and space
+ * main - Printing the natural numbers from 0 - 9 with commas and spaces
  *
  * Return: Always 0 (Success)
  */
@@ -11,9 +9,19 @@ int i;
 for (i = 0; i <= 9; i++)
 {
 putchar(i + '0');
+if (i < 9)
+{
 putchar(',');
 putchar(' ');
 }
+}
+putchar('\n');
+return 0;
+}char(' ');
+}
+putchar('\n');
+return (0);
+} 
 putchar('\n');
 return (0);
 }
