@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 /**
  * main - Printing the natural numbers from 0 - 9 with commas and spaces
  *
@@ -15,13 +17,6 @@ putchar(',');
 putchar(' ');
 }
 }
-putchar('\n');
-return 0;
-}char(' ');
-}
-putchar('\n');
-return (0);
-} 
 putchar('\n');
 return (0);
 }
