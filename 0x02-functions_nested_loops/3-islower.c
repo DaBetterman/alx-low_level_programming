@@ -5,9 +5,9 @@
  */
 
 #include "main.h"
-int _islower(int numb)
+int _islower(int c)
 {
-if (numb >= 97 && numb <= 122)
+if (c >= 97 && c <= 122)
 {
 return (1);
 }
