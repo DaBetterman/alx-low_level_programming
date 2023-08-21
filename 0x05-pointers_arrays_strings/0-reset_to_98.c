@@ -9,5 +9,5 @@
 
 void reset_to_98(int *n)
 {
-*n = *n - 304;
+*n = 98;
 }
