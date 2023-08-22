@@ -16,7 +16,7 @@ while (*ptr != '\0')
 lenght++;
 ptr++;
 }
-half_numb = (lenght - 1) / 2;
+half_numb = (lenght) / 2;
 for (i = half_numb; i < lenght; i++)
 {
 _putchar(str[i]);
