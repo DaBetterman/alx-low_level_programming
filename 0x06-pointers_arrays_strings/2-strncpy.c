@@ -8,14 +8,16 @@
 #include "main.h"
 char *_strncpy(char *dest, char *src, int n)
 {
-char *start = dest;
-while (*src != '\0' && n > 0)
+int i = 0;
+while (i < n && src[i] != '\0')
 {
-*dest = *src;
-dest++;
-src++;
-n--;
+dest[i] = src[i];
+i++;
 }
-*dest = '\0';
-return (start);
+while (i < n)
+{
+dest[i] = '\0';
+i++;
+}
+return (dest);
 }
