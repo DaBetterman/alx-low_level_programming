@@ -14,10 +14,7 @@ if (*s == c)
 {
 return (s);
 }
-else
-{
 s++;
-}
 }
 return (0);
 }
