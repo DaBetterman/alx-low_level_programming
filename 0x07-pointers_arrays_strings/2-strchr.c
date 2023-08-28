@@ -6,6 +6,7 @@
  */
 
 #include "main.h"
+#include <stddef.h>
 char *_strchr(char *s, char c)
 {
 while (*s != '\0')
@@ -16,5 +17,5 @@ return (s);
 }
 s++;
 }
-return (0);
+return (NULL);
 }
