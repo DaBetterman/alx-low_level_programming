@@ -13,20 +13,33 @@
 char *str_concat(char *s1, char *s2)
 {
 char *combo;
-int i, j;
-combo = malloc(16);
+int i;
+int j;
+int k;
+int l;
 if (s1 == NULL || s2 == NULL)
 {
 return (NULL);
 }
 for (i = 0; s1[i] != '\0'; i++)
 {
-combo[i] = s1[i];
 }
 for (j = 0; s2[j] != '\0'; j++)
 {
-combo [j + 6] = s2[j];
 }
-combo[j + 6] = '\0';
+combo = malloc(i + j + 1);
+if (combo == NULL)
+{
+return (NULL);
+}
+for (k = 0; k < i; k++)
+{
+combo[k] = s1[k];
+}
+for (l = 0; l < j; l++)
+{
+combo[i + l] = s2[l];
+}
+combo[i + j] = '\0';
 return (combo);
 }
