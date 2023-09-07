@@ -13,41 +13,30 @@
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
+char *combo;
+unsigned int i = 0;
+unsigned int j = 0;
 unsigned int len1 = 0;
 unsigned int len2 = 0;
-unsigned int i;
-unsigned int j;
-unsigned int concat = 0;
-char *combo;
-if (s1 == NULL)
-{
-s1 = "";
-}
-while (s1[len1] != '\0')
-{
+while (s1 && s1[len1])
 len1++;
-}
-while (s2[len2] != '\0')
-{
+while (s2 && s2[len2])
 len2++;
-}
-while (concat < len1 && concat < n)
-{
-concat++;
-}
-combo = (char *)malloc((concat + len2 + 1) * sizeof(char));
-if (combo == NULL)
-{
+if (len2 > n)
+combo = malloc((len1 + n + 1));
+else
+combo = malloc((len1 + len2 + 1));
+if (!combo)
 return (NULL);
-}
-for (i = 0; i < len1; i++)
+while (len1 > i)
 {
 combo[i] = s1[i];
+i++;
 }
-for (j = 0; j < n && j < len2; j++)
-{
-combo[i + j] = s2[j];
-}
-combo[i + j] = '\0';
+while (n < len2 && i < (len1 + n))
+combo[i++] = s2[j++];
+while (n >= len2 && i < (len1 + len2))
+combo[i++] = s2[j++];
+combo[i] = '\0';
 return (combo);
 }
