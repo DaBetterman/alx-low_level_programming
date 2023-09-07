@@ -10,20 +10,32 @@
 #include <stddef.h>
 #include <string.h>
 #include <stdlib.h>
+
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
+unsigned int len1 = 0;
+unsigned int len2 = 0;
+unsigned int i;
+unsigned int j;
+unsigned int concat = 0;
 char *combo;
-unsigned int len1, i, j;
 if (s1 == NULL)
 {
 s1 = "";
 }
-if (s2 == NULL)
+while (s1[len1] != '\0')
 {
-s2 = "";
+len1++;
 }
-len1 = strlen(s1);
-combo = malloc(len1 + n + 1);
+while (s2[len2] != '\0')
+{
+len2++;
+}
+while (concat < len1 && concat < n)
+{
+concat++;
+}
+combo = (char *)malloc((concat + len2 + 1) * sizeof(char));
 if (combo == NULL)
 {
 return (NULL);
@@ -32,10 +44,10 @@ for (i = 0; i < len1; i++)
 {
 combo[i] = s1[i];
 }
-for (j = 0; j < n && s2[j] != '\0'; j++)
+for (j = 0; j < n && j < len2; j++)
 {
-combo[i++] = s2[j];
-combo[i] = '\0';
+combo[i + j] = s2[j];
 }
+combo[i + j] = '\0';
 return (combo);
 }
