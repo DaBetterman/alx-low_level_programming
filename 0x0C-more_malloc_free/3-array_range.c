@@ -13,7 +13,7 @@
 int *array_range(int min, int max)
 {
 int *mem;
-int i = 0;
+int i;
 int minMax;
 if (min > max)
 {
@@ -25,10 +25,10 @@ if (mem == NULL)
 {
 return (NULL);
 }
+i = 0;
 while (min <= max)
 {
-mem[i] = min;
-min++;
+mem[i] = min++;
 i++;
 }
 return (mem);
