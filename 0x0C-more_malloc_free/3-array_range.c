@@ -20,7 +20,7 @@ if (min > max)
 return (NULL);
 }
 minMax = max - min + 1;
-mem = malloc(minMax * sizeof(int));
+mem = malloc(sizeof(int) * minMax);
 if (mem == NULL)
 {
 return (NULL);
