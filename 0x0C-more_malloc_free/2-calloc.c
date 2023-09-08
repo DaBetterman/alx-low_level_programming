@@ -8,6 +8,7 @@
 #include "main.h"
 #include <stddef.h>
 #include <stdlib.h>
+#include <string.h>
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
@@ -21,5 +22,6 @@ if (numb == NULL)
 {
 return (NULL);
 }
+memset(numb, 0, nmemb * (size));
 return (numb);
 }
