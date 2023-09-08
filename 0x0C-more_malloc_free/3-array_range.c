@@ -17,7 +17,7 @@ if (min > max)
 {
 return (NULL);
 }
-mem = malloc(11 * sizeof(int));
+mem = malloc((max + 1) * sizeof(int));
 if (mem == NULL)
 {
 return (NULL);
