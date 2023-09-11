@@ -1,12 +1,13 @@
+#ifndef DOG
+#define DOG
+
+
 /**
  * *struct dog - a new data type
  * *@name: will create a new string variable
  * *@age: age of the variable
  * *@owner: will create a new string variable
  */
-
-#ifndef DOG
-#define DOG
 
 struct dog
 {
