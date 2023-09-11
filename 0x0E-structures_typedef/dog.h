@@ -5,8 +5,8 @@
  * *@owner: will create a new string variable
  */
 
-#ifndef DOG_H
-#define DOG_H
+#ifndef DOG
+#define DOG
 
 struct dog
 {
@@ -22,4 +22,4 @@ void print_dog(struct dog *d);
 dog_t *new_dog(char *name, float age, char *owner);
 void free_dog(dog_t *d);
 
-#endif /* DOG_H */
+#endif /*DOG_H*/
