@@ -19,7 +19,7 @@ va_start(pro, n);
 for (i = 0; i < n; i++)
 {
 words = va_arg(pro, char *);
-if (pro == NULL)
+if (words == NULL)
 {
 printf("(nil)");
 }
