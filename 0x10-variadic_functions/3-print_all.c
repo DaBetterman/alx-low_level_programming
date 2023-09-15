@@ -30,7 +30,8 @@ printf("%s%f", ptr, va_arg(pro, double));
 break;
 case 's':
 string = va_arg(pro, char *);
-if (!string) string = "(nil)";
+if (!string)
+string = "(nil)";
 printf("%s%s", ptr, string);
 break;
 default:
