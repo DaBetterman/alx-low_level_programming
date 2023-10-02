@@ -25,7 +25,6 @@ int create_file(const char *filename, char *text_content)
 
 	if (newFile == -1)
 	{
-		perror("Error creating/opening file");
 		return (-1);
 	}
 
@@ -34,7 +33,6 @@ int create_file(const char *filename, char *text_content)
 		bytes_written = write(newFile, text_content, strlen(text_content));
 		if (bytes_written == -1)
 		{
-			perror("Error writing to file");
 			close(newFile);
 			return (-1);
 		}
