@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     const char *file_from = argv[1];
     const char *file_to = argv[2];
     ssize_t bytes_read, bytes_written;
-    char buffer[BUFFER_SIZE];
+    char buffer[1024];
     int newFile_to, newFile_from = 0;
     
     if (argc != 3)
@@ -60,17 +60,11 @@ int main(int argc, char *argv[])
         exit_with_error(98, "Error: Can't read from file");
     }
 
-    if (close(newFile_from) == -1)
+    if (close(newFile_from) == -1  || close(newFile_to) == -1)
     {
-        dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", newFile_from);
-        exit(100);
+        exit_with_error(100, "Error: Can't close fd %d\n");
     }
 
-    if (close(newFile_to) == -1)
-    {
-        dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", newFile_to);
-        exit(100);
-    }
-
+    
     return (0);
 }
