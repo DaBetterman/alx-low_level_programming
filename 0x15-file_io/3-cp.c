@@ -21,6 +21,12 @@
 
 #define BUFFER_SIZE 1024
 
+void exit_with_error(int code, const char *message)
+{
+	dprintf(STDERR_FILENO, "%s\n", message);
+	exit(code);
+}
+
 
 int main(int argc, char *argv[])
 {
