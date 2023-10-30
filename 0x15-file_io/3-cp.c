@@ -3,16 +3,16 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
-char *allocateBuffer(char *file);
-void closeFileDescriptor(int fd);
+char *create_buffer(char *file);
+void close_file(int fd);
 
 /**
-* allocateBuffer - Allocates 1024 bytes of memory for a buffer.
-* @file: The name of the file where characters are stored.
-*
-* Return: A pointer to the newly-allocated buffer.
-*/
-char *allocateBuffer(char *file)
+ * create_buffer - Allocates 1024 bytes for a buffer.
+ * @file: The name of the file buffer is storing chars for.
+ *
+ * Return: A pointer to the newly-allocated buffer.
+ */
+char *create_buffer(char *file)
 {
 	char *buffer;
 
@@ -21,7 +21,7 @@ char *allocateBuffer(char *file)
 	if (buffer == NULL)
 	{
 		dprintf(STDERR_FILENO,
-			"Error: Unable to allocate memory for %s\n", file);
+			"Error: Can't write to %s\n", file);
 		exit(99);
 	}
 
@@ -29,52 +29,52 @@ char *allocateBuffer(char *file)
 }
 
 /**
-* closeFileDescriptor - Closes a file descriptor.
-* @fd: The file descriptor to be closed.
-*/
-void closeFileDescriptor(int fd)
+ * close_file - Closes file descriptors.
+ * @fd: The file descriptor to be closed.
+ */
+void close_file(int fd)
 {
-	int result;
+	int c;
 
-	result = close(fd);
+	c = close(fd);
 
-	if (result == -1)
+	if (c == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close file descriptor %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
 }
 
 /**
-* main - Copies the contents of one file to another.
-* @argc: The number of arguments provided to the program.
-* @argv: An array of pointers to the program's arguments.
-*
-* Return: 0 on successful execution.
-*
-* Description: If the argument count is incorrect - exit code 97.
-*				If the source file doesn't exist or can't be read - exit code 98.
-*				If the destination file can't be created or written to - exit code 99.
-*              If there are issues closing file descriptors - exit code 100.
-*/
+ * main - Copies the contents of a file to another file.
+ * @argc: The number of arguments supplied to the program.
+ * @argv: An array of pointers to the arguments.
+ *
+ * Return: 0 on success.
+ *
+ * Description: If the argument count is incorrect - exit code 97.
+ *              If file_from does not exist or cannot be read - exit code 98.
+ *              If file_to cannot be created or written to - exit code 99.
+ *              If file_to or file_from cannot be closed - exit code 100.
+ */
 int main(int argc, char *argv[])
 {
-	int source, destination, readBytes, writtenBytes;
+	int from, to, r, w;
 	char *buffer;
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp source_file destination_file\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
-	buffer = allocateBuffer(argv[2]);
-	source = open(argv[1], O_RDONLY);
-	readBytes = read(source, buffer, 1024);
-	destination = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	buffer = create_buffer(argv[2]);
+	from = open(argv[1], O_RDONLY);
+	r = read(from, buffer, 1024);
+	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
-		if (source == -1 || readBytes == -1)
+		if (from == -1 || r == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't read from file %s\n", argv[1]);
@@ -82,8 +82,8 @@ int main(int argc, char *argv[])
 			exit(98);
 		}
 
-		writtenBytes = write(destination, buffer, readBytes);
-		if (destination == -1 || writtenBytes == -1)
+		w = write(to, buffer, r);
+		if (to == -1 || w == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't write to %s\n", argv[2]);
@@ -91,14 +91,14 @@ int main(int argc, char *argv[])
 			exit(99);
 		}
 
-		readBytes = read(source, buffer, 1024);
-		destination = open(argv[2], O_WRONLY | O_APPEND);
+		r = read(from, buffer, 1024);
+		to = open(argv[2], O_WRONLY | O_APPEND);
 
-	} while (readBytes > 0);
+	} while (r > 0);
 
 	free(buffer);
-	closeFileDescriptor(source);
-	closeFileDescriptor(destination);
+	close_file(from);
+	close_file(to);
 
 	return (0);
 }
