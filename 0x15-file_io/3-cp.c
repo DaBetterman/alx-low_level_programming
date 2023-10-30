@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 	}
 
 	location = open(argv[1], O_RDONLY);
-	destination = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+	destination = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	error_file(location, destination, argv);
 
 	count = 1024;
@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
 	fclose = close(destination);
 	if (fclose == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", location);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", destination);
 		exit(100);
 	}
 	return (0);
