@@ -18,26 +18,26 @@
  It can be used in bitwise operations like AND, OR, XOR, and NOT to change or extract specific bits in binary numbers.
 </p>
 <p align="center">
-  <a href="https://github.com/Tr-reny/alx-low_level_programming/LICENSE">
+  <a href="https://github.com/DaBetterman/alx-low_level_programming/LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="alx-low_level_programming is released under the MIT license." />
   </a>
   
-  <a href="https://circleci.com/gh/Tr-reny/alx-low_level_programming">
+  <a href="https://circleci.com/gh/DaBetterman/alx-low_level_programming">
     <img src="https://circleci.com/gh/gatsbyjs/gatsby.svg?style=shield" alt="Current CircleCI build status." />
   </a>
  
-  <a href="https://github.com/Tr-reny/alx-low_level_programming/graphs/traffic">
+  <a href="https://github.com/DaBetterman/alx-low_level_programming/graphs/traffic">
    <img src="https://img.shields.io/npm/dm/gatsby.svg" alt="Downloads per month on " />
  </a>
-  <a href="https://github.com/Tr-reny/alx-low_level_programming/graphs/traffic">
+  <a href="https://github.com/DaBetterman/alx-low_level_programming/graphs/traffic">
     <img src="https://img.shields.io/npm/dt/gatsby.svg" alt="Total downloads on npm." />
   </a>
-  <a href="https://twitter.com/intent/follow?screen_name=tripper_rey">
-    <img src="https://img.shields.io/twitter/follow/tripper_rey.svg?label=Follow%20@tripper_rey" alt="Follow @tripper_rey" />
+  <a href="https://twitter.com/intent/follow?screen_name=Da_Betterman">
+    <img src="https://img.shields.io/twitter/follow/Da_Betterman.svg?label=Follow%20@Da_Betterman" alt="Follow @Da_Betterman" />
   </a>
  
- <a href="https://img.shields.io/github/stars/Tr-reny/alx-low_level_programming?style=social">
-  <img src="https://img.shields.io/github/stars/Tr-reny/alx-low_level_programming?style=social" alt="Stars" />
+ <a href="https://img.shields.io/github/stars/DaBetterman/alx-low_level_programming?style=social">
+  <img src="https://img.shields.io/github/stars/DaBetterman/alx-low_level_programming?style=social" alt="Stars" />
  </a>
 </p>
 ### Visitors Count
