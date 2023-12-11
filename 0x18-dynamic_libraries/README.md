@@ -9,12 +9,13 @@
 
 <p align="center">
   <strong>
-    C - Doubly linked lists
+    C programming 
   </strong>
 </p>
 
 <p align="center">
-In C programming, a doubly linked list is a data structure that consists of a sequence of elements, each<br>containing a data part and two pointers: one pointing to the previous element in the sequence (previous node) and<br>another pointing to the next element (next node). This bidirectional linkage allows traversal in both forward and backward directions.
+ Alx-low_level_programming is a free and open source framework based on C programming Language </br> 
+ These are Tasks that we do on a daily basis to help us Master the Art-of Programming.
 </p>
 <p align="center">
   <a href="https://github.com/DaBetterman/alx-low_level_programming/LICENSE">
